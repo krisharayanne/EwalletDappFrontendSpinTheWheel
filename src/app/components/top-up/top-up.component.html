@@ -1,0 +1,19 @@
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet'>
+<br><br><br><br>
+<div class="signUpBg">
+<h1>Top Up</h1>
+<label for="amount">Amount*</label>
+<br><br>
+<input type="number" pattern=" 0+\.[0-9]*[1-9][0-9]*$" onkeypress="return event.charCode >= 48 && event.charCode <= 57" id="amount" required [(ngModel)]="amount" name="amount">
+<br><br>
+<button class="button" (click)="confirmTopUp()">Top Up</button>
+<p>Only positive whole numbers allowed!<br>
+    No decimal or negative numbers will be accepted!</p>
+    <h3>Message: </h3>
+    <h3>{{message}}</h3>
+    <h3>Transaction Hash: </h3>
+    <h3><a [style.color] = "'white'" href="{{transactionHash}}">{{transactionHash}}</a></h3>
+
+
+</div>

@@ -1,0 +1,51 @@
+<link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet'>
+<div class="guestHeader" [style.display]="loggedIn? 'none':'block'">
+ 
+<ul>
+  <li> <img src="/assets/img/ebricheaderlogo.png" ></li>
+  <li (click)="displayMenu()"><img src="/assets/img/menuIcon.png" class="menuIcon"></li>
+  <li class="headerLinks" ><a routerLink="Home">Home</a></li>
+  <li class="headerLinks"><a routerLink="SignUp">Sign Up</a></li>
+  <li class="headerLinks"><a routerLink="Login">Login</a></li>
+
+  <div id="two" [style.display]="headerLinksDisplay? 'block':'none'">
+  <li><a routerLink="Home">Home</a></li>
+  <li><a routerLink="SignUp">Sign Up</a></li>
+  <li><a routerLink="Login">Login</a></li>
+</div>
+</ul>
+
+
+
+</div>
+
+<div id="one" class="userHeader" [style.display]="loggedIn? 'block':'none'">
+  <ul>
+  <li> <img src="/assets/img/ebricheaderlogo.png"></li>
+  <li (click)="displayMenu2()"><img src="/assets/img/menuIcon.png" class="menuIcon"></li>
+<li class="headerLinks"><a routerLink="Dashboard">Dashboard</a></li>
+<li class="headerLinks"><a routerLink="TopUp">Top Up</a></li>
+<li class="headerLinks"><a routerLink="Transfer">Transfer</a></li>
+<li class="headerLinks"><a routerLink="TeamDetails">My Team</a></li>
+<!-- team ID, team name, team members, team balance -->
+<li class="headerLinks"><a routerLink="IndividualTransactions">My Transactions</a></li>
+<li class="headerLinks"><a routerLink="TeamTransactions">My Team's Transactions</a></li>
+<li class="headerLinks"><a routerLink="LogOut">Log Out</a></li>
+
+<div id="three" [style.display]="headerLinksDisplay2? 'block':'none'">
+  <li ><a routerLink="Dashboard">Dashboard</a></li>
+<li ><a routerLink="TopUp">Top Up</a></li>
+<li ><a routerLink="Transfer">Transfer</a></li>
+<li ><a routerLink="TeamDetails">My Team</a></li>
+<!-- team ID, team name, team members, team balance -->
+<li ><a routerLink="IndividualTransactions">My Transactions</a></li>
+<li ><a routerLink="TeamTransactions">My Team's Transactions</a></li>
+<li ><a routerLink="LogOut">Log Out</a></li>
+</div>
+</ul>
+</div>
+<!-- <h1 class="mainHeader">Company Retreat Ewallet Angular Dapp Polygon Mumbai Testnet</h1> -->
+
+<div class="container mt-3">
+  <router-outlet (activate)="checkIfLoggedIn()"></router-outlet>
+</div>

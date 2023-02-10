@@ -1,0 +1,30 @@
+<link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet'>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<br>
+<body>
+<h1>My Team</h1>
+<img src="/assets/img/teamBgPicReal.jpg" class="profileIcon">
+<br><br>
+<h3>Team ID:</h3>
+<h4>{{teamID}}</h4>
+<br><br>
+
+<h3>Team name:</h3>
+<h4>{{teamName}}</h4>
+<br><br>
+
+<h3>Team Members' Names:</h3>
+<h4>
+<select>
+    <option [disabled]="true" hidden> Team Members' Names:</option>
+    <option *ngFor="let teamMember of teamMembers" [value]="teamMember">
+      {{teamMember}}
+    </option>
+</select>
+</h4>
+<br><br>
+
+<h3>Team Balance:</h3>
+<h4>{{teamBalance}}</h4>
+
+</body>

@@ -1,0 +1,37 @@
+<link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet'>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<br><br><br><br>
+<div class="signUpBg">
+<h1>Transfer</h1>
+<label>Select Team ID to transfer to:</label>
+<br><br>
+<select [(ngModel)]="teamID">
+    <option [ngValue]="null" [disabled]="true" hidden>Select Team ID:</option>
+    <option *ngFor="let team of teamArray" [value]="team">
+      {{team}}
+    </option>
+</select>
+<br><br>
+<label for="amount">Amount</label>
+<br><br>
+<input type="number" pattern=" 0+\.[0-9]*[1-9][0-9]*$" onkeypress="return event.charCode >= 48 && event.charCode <= 57" id="amount" required [(ngModel)]="amount" name="amount"
+placeholder="Type your amount">
+<br><br>
+
+<label for="description">Description</label>
+<br><br>
+  <input type="text" id="description" required [(ngModel)]="description" name="description" 
+  placeholder="Type the product or service">
+  <br><br>
+
+  <button class="button" (click)="confirmTransfer()">Transfer</button>
+
+  <p>Only positive whole numbers allowed!<br>
+    No decimal or negative numbers will be accepted!</p>
+
+    <h3>Message: </h3>
+    <h3>{{message}}</h3>
+    <h3>Transaction Hash: </h3>
+    <h3><a [style.color] = "'white'" href="{{transactionHash}}">{{transactionHash}}</a></h3>
+
+</div>

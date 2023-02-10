@@ -1,0 +1,67 @@
+
+
+.outer {
+    height: 120vh;
+    margin: 0;
+    width: 50%;
+    float: left;
+  }
+  
+  .bg {
+    /* The image used */
+    background-image: url("/assets/img/homeBgPic.jpg");
+  
+    /* Full height */
+    /* width: 50%; */
+    height: 100%; 
+  
+    /* Center and scale the image nicely */
+    background-position: 50% 50%;
+    background-repeat: no-repeat;
+    background-size: contain;
+  }
+  .bg2 {
+    /* The image used */
+    background-image: url("/assets/img/servicesProvided.webp");
+  
+    /* Full height */
+    /* width: 50%; */
+    height: 100%; 
+  
+    /* Center and scale the image nicely */
+    background-position: 50% 50%;
+    background-repeat: no-repeat;
+    background-size: contain;
+  }
+  .mainHeaderText {
+    font-family: Roboto;
+    font-size: 40px;
+    font-weight: 900;
+    line-height: 200%;
+    letter-spacing: 0.03em;
+    margin-left: 20%;
+  }
+
+  .randomSpace1 {
+    height: 20vh;
+    background: transparent;
+  }
+
+  .subText {
+    font-size: 15px;
+  }
+
+  @media only screen and (max-width: 600px) {
+    .outer {
+        height: 100vh;
+        width: 100%;
+    }
+
+    .mainHeaderText {
+        margin-left: 10%;
+    }
+
+    .randomSpace1 {
+        height: 10vh;
+    }
+  }

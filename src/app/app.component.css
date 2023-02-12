@@ -80,7 +80,7 @@ ul {
         display: block;
     }
     .headerLinks {
-        display: none;
+        display: none !important;
     }
 
     div#two li a{

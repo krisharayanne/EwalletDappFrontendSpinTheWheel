@@ -15,7 +15,7 @@ export class ContractsService {
   private _web3: any;
 
   private _tokenContract: any;
-  _tokenContractAddress = '0x1792A130eD8e474ADf47AcA2754db26349CaCC63';
+  _tokenContractAddress = '0x96c8FbF407c007A95711D9bc9423fefF92090f37';
   // private _tokenContractAddress: string = "0x4212Ca5462dde9Ebbc8Eb7b47ea58779B77CcFf1";
 
   constructor() {
@@ -88,8 +88,20 @@ return IDToIndividual;
   return transaction;
  }
 
+ async getMiniPoolIndividualTransactions(individualID:any, arrayIndex:any) {
+  let transaction = await this._tokenContract.methods.miniPoolIndividualToTransactions(individualID, arrayIndex).call();
+  console.log(transaction);
+  return transaction;
+ }
+
  async getTeamTransactions(teamID:any, arrayIndex:any) {
   let transaction = await this._tokenContract.methods.teamToTransactions(teamID, arrayIndex).call();
+  console.log(transaction);
+  return transaction;
+ }
+
+ async getMiniPoolTeamTransactions(teamID:any, arrayIndex:any) {
+  let transaction = await this._tokenContract.methods.miniPoolTeamToTransactions(teamID, arrayIndex).call();
   console.log(transaction);
   return transaction;
  }
@@ -100,8 +112,20 @@ return IDToIndividual;
   return transactionArraySize;
  }
 
+ async getMiniPoolIndividualTransactionArraySize(individualID:any) {
+  let transactionArraySize = await this._tokenContract.methods.getMiniPoolIndividualTransactionSize(individualID).call();
+  console.log(transactionArraySize);
+  return transactionArraySize;
+ }
+
  async getTeamTransactionArraySize(teamID:any) {
   let transactionArraySize = await this._tokenContract.methods.getTeamTransactionSize(teamID).call();
+  console.log(transactionArraySize);
+  return transactionArraySize;
+ }
+
+ async getMiniPoolTeamTransactionArraySize(teamID:any) {
+  let transactionArraySize = await this._tokenContract.methods.getMiniPoolTeamTransactionSize(teamID).call();
   console.log(transactionArraySize);
   return transactionArraySize;
  }
@@ -129,6 +153,12 @@ return IDToTeam;
   console.log(numberOfTeams);
   return numberOfTeams;
    }
+
+   async getMiniPoolProfitTracker(){
+    let miniPoolProfitTracker = await this._tokenContract.methods.miniPoolProfitTracker().call();
+    console.log(miniPoolProfitTracker);
+    return miniPoolProfitTracker;
+     }
 
    async getBelongingTeam(individualID:any) {
     let belongingTeamID = await this._tokenContract.methods.individualIDToTeamID(individualID).call();
@@ -182,6 +212,74 @@ let receipt = await this._web3.eth.sendSignedTransaction(signedTx.rawTransaction
 return receipt;
  }
 
+ async addToMiniPoolProfit(profit:any){
+  let nonce = await this._web3.eth.getTransactionCount(this._web3.eth.defaultAccount, 'pending');
+  let gasPrice = await this._web3.eth.getGasPrice();
+  let gasLimit = 6000000;
+   
+  const tx = this._tokenContract.methods.addToMiniPoolProfit(profit);
+  const gas = await tx.estimateGas({from: this._web3.eth.defaultAccount});
+  const data = tx.encodeABI();
+  let rawTx = {
+    nonce: nonce,
+    gas: gas,
+    gasPrice: gasPrice,
+    gasLimit: gasLimit,
+    to: this._tokenContractAddress, 
+    from: this._web3.eth.defaultAccount,
+    data: data,
+};
+
+let signedTx = await this._web3.eth.accounts.signTransaction(rawTx, '3386b9cbe2249e40d1d0614c820b804207a930bba1fb2e6ae56a7f239d684af4'); // Issue 2
+let receipt = await this._web3.eth.sendSignedTransaction(signedTx.rawTransaction);
+return receipt;
+ }
+
+ async subtractFromMiniPoolProfit(amount:any){
+  let nonce = await this._web3.eth.getTransactionCount(this._web3.eth.defaultAccount, 'pending');
+  let gasPrice = await this._web3.eth.getGasPrice();
+  let gasLimit = 6000000;
+   
+  const tx = this._tokenContract.methods.subtractFromMiniPoolProfit(amount);
+  const gas = await tx.estimateGas({from: this._web3.eth.defaultAccount});
+  const data = tx.encodeABI();
+  let rawTx = {
+    nonce: nonce,
+    gas: gas,
+    gasPrice: gasPrice,
+    gasLimit: gasLimit,
+    to: this._tokenContractAddress, 
+    from: this._web3.eth.defaultAccount,
+    data: data,
+};
+
+let signedTx = await this._web3.eth.accounts.signTransaction(rawTx, '3386b9cbe2249e40d1d0614c820b804207a930bba1fb2e6ae56a7f239d684af4'); // Issue 2
+let receipt = await this._web3.eth.sendSignedTransaction(signedTx.rawTransaction);
+return receipt;
+ }
+
+ async prizeTransfer(individualID:any, teamID:any, description:any, amount:any){
+  let nonce = await this._web3.eth.getTransactionCount(this._web3.eth.defaultAccount, 'pending');
+  let gasPrice = await this._web3.eth.getGasPrice();
+  let gasLimit = 6000000;
+   
+  const tx = this._tokenContract.methods.prizeTransfer(individualID, teamID, description, amount);
+  const gas = await tx.estimateGas({from: this._web3.eth.defaultAccount});
+  const data = tx.encodeABI();
+  let rawTx = {
+    nonce: nonce,
+    gas: gas,
+    gasPrice: gasPrice,
+    gasLimit: gasLimit,
+    to: this._tokenContractAddress, 
+    from: this._web3.eth.defaultAccount,
+    data: data,
+};
+
+let signedTx = await this._web3.eth.accounts.signTransaction(rawTx, '3386b9cbe2249e40d1d0614c820b804207a930bba1fb2e6ae56a7f239d684af4'); // Issue 2
+let receipt = await this._web3.eth.sendSignedTransaction(signedTx.rawTransaction);
+return receipt;
+ }
 
 
 }

@@ -1,0 +1,18 @@
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<h1>Prizes To Give</h1>
+<table id="customers">
+<tr>
+    <th>From (Team)</th>
+    <th>To (Individual)</th>
+    <th>Amount</th>
+    <th>Description</th>   
+</tr>
+
+  <tr *ngFor="let transaction of transactionArray">
+    <td>{{transaction.fromTeamID}}</td>
+    <td>{{transaction.toIndividualID}}</td>
+    <td>{{transaction.amount}}</td>
+    <td>{{transaction.description}}</td>
+  </tr>
+
+</table>

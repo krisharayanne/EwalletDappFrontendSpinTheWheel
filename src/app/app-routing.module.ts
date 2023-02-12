@@ -10,6 +10,9 @@ import { TransferComponent } from './components/transfer/transfer.component';
 import { TeamDetailsComponent } from './components/team-details/team-details.component';
 import { IndividualTransactionsComponent } from './components/individual-transactions/individual-transactions.component';
 import { TeamTransactionsComponent } from './components/team-transactions/team-transactions.component';
+import { SpinTheWheelComponent } from './components/spin-the-wheel/spin-the-wheel.component';
+import { PrizesWonComponent } from './components/prizes-won/prizes-won.component';
+import { PrizesToGiveComponent } from './components/prizes-to-give/prizes-to-give.component'
 
 // all components other than sign up and login, must check if the user individual ID is stored in session storage
 // To indicate that the user has logged in before accessing the route
@@ -26,6 +29,9 @@ const routes: Routes = [
   { path: 'TeamDetails', component: TeamDetailsComponent},
   { path: 'IndividualTransactions', component: IndividualTransactionsComponent},
   { path: 'TeamTransactions', component: TeamTransactionsComponent},
+  { path: 'SpinTheWheel', component: SpinTheWheelComponent},
+  { path: 'PrizesWon', component: PrizesWonComponent},
+  { path: 'PrizesToGive', component: PrizesToGiveComponent},
 ];
 
 @NgModule({

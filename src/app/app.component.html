@@ -27,9 +27,11 @@
 <li class="headerLinks"><a routerLink="TopUp">Top Up</a></li>
 <li class="headerLinks"><a routerLink="Transfer">Transfer</a></li>
 <li class="headerLinks"><a routerLink="TeamDetails">My Team</a></li>
-<!-- team ID, team name, team members, team balance -->
 <li class="headerLinks"><a routerLink="IndividualTransactions">My Transactions</a></li>
 <li class="headerLinks"><a routerLink="TeamTransactions">My Team's Transactions</a></li>
+<li class="headerLinks" [style.display]="displaySpinTheWheelLink? 'block':'none'"><a routerLink="SpinTheWheel">Spin The Wheel</a></li>
+<li class="headerLinks" [style.display]="displaySpinTheWheelLink? 'block':'none'"><a routerLink="PrizesWon">Prizes Won</a></li>
+<li class="headerLinks" [style.display]="displaySpinTheWheelLink? 'none':'block'"><a routerLink="PrizesToGive">Prizes To Give</a></li>
 <li class="headerLinks"><a routerLink="LogOut">Log Out</a></li>
 
 <div id="three" [style.display]="headerLinksDisplay2? 'block':'none'">
@@ -37,9 +39,11 @@
 <li ><a routerLink="TopUp">Top Up</a></li>
 <li ><a routerLink="Transfer">Transfer</a></li>
 <li ><a routerLink="TeamDetails">My Team</a></li>
-<!-- team ID, team name, team members, team balance -->
 <li ><a routerLink="IndividualTransactions">My Transactions</a></li>
 <li ><a routerLink="TeamTransactions">My Team's Transactions</a></li>
+<li [style.display]="displaySpinTheWheelLink? 'block':'none'"><a routerLink="SpinTheWheel">Spin The Wheel</a></li>
+<li [style.display]="displaySpinTheWheelLink? 'block':'none'"><a routerLink="PrizesWon">Prizes Won</a></li>
+<li [style.display]="displaySpinTheWheelLink? 'none':'block'"><a routerLink="PrizesToGive">Prizes To Give</a></li>
 <li ><a routerLink="LogOut">Log Out</a></li>
 </div>
 </ul>
